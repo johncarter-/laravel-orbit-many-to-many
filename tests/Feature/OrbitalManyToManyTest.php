@@ -24,4 +24,13 @@ class OrbitalManyToManyTest extends TestCase
         $this->assertSame($user->roles->first()->name, $role->name);
         $this->assertSame($user->roles->last()->name, $role2->name);
     }
+
+    /** @test */
+    function it_can_handle_empty_many_to_many_relationships()
+    {
+        $user = User::factory()->createOne();
+
+        // Failing
+        $this->assertEquals($user->roles->count(), 0);
+    }
 }
