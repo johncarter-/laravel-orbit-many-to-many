@@ -10,6 +10,8 @@ class RoleUser extends Pivot
 {
     use Orbital;
 
+    public $incrementing = true;
+
     public static function schema(Blueprint $table)
     {
         $table->id();
