@@ -36,12 +36,12 @@ class OrbitalManyToManyTest extends TestCase
     }
 
     /** @test */
-    function it_can_handle_many_to_many_relationships_when_a_role_user_has_one_entry()
+    function it_can_handle_many_to_many_relationships_when_you_create_then_delete_a_pivot_model()
     {
         RoleUser::create([
             'user_id' => 99999999999999999,
             'role_id' => 99999999999999999,
-        ]);
+        ])->delete();
 
         $user = User::factory()->createOne();
 
